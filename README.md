@@ -2,6 +2,9 @@
 Node-red nodes that allow users to send SOAP request.
 
 
+# Fork of https://github.com/chameleonbr/node-red-contrib-soap
+Change : enable the use of local wsdl file by preventing the addition of "?wsdl" at the end of the wdsl url if no protocol is defined
+
 ##Usages
 To set up SOAP request, create a new soap config:
 * Enter the WSDL address to the `WSDL` field. 
