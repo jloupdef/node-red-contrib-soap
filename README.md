@@ -14,6 +14,7 @@ You can also feed in parameters and overwrite configs with an injected msg:
 * You can have `msg.server` to overwrite the WSDL address. This only works with WSDL server with no authentication method.
 * You can have `msg.options` to add in options to the SOAP request.
 * You can have `msg.headers` to add in headers for the SOAP request.
+* You can have `msg.httpHeaders` to add in extra HTTP headers (not SOAP headers) for the request.</li>
 * You can feed in `msg.payload.<parameters>` to feed in the parameters you need.
 
 For example, here is the sample flow where we try to send a SOAP request to http://www.webservicex.net/geoipservice.asmx, trying to call the `GetGeoIP` function with an variable IPAddress as 139.130.4.5.
