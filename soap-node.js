@@ -51,6 +51,15 @@ module.exports = function (RED) {
                         });                     
                     }   
 
+                    if (msg.sslOptions) {
+                        client.setSecurity(new soap.ClientSSLSecurity(
+                            msg.sslOptions.key,
+                            msg.sslOptions.cert,
+                            msg.sslOptions.ca,
+                            msg.sslOptions.defaults
+                        ));
+                    }
+                    
                     if(client.hasOwnProperty(node.method)){
                         client[node.method](msg.payload, function (err, result) {
                             if (err) {
