@@ -41,14 +41,15 @@
     <p>To set up SOAP request, create a new soap config </p>
 
     <p>In the SOAP request config tab, enter the valid method name in *Method* field. Having an invalid method name will return error.</p>
-    <p>You can also feed in parameters and overwrite configs with an injected msg: </p>
+    <p>You can also feed in parameters and overwrite / extend configs with an injected msg: </p>
     <p>
         <ul>
             <li>You can have <b>msg.server</b> to overwrite the WSDL address. This only works with WSDL server with no authentication method.</li>
             <li>You can have <b>msg.options</b> to add in options to the SOAP request.</li>
             <li>You can have <b>msg.headers</b> to add in headers for the SOAP request.</li>
+            <li>You can have <b>msg.httpHeaders</b> to add in extra HTTP headers (not SOAP headers) for the request.</li>
+			<li>You can have <b>msg.sslOptions</b> to add SSL security configuration, as described <a href="https://www.npmjs.com/package/soap#clientsslsecurity" target="_blank">here</a>.</li>
             <li>You can feed in <b>msg.payload.&lt;parameters&gt;</b> to feed in the parameters you need.</li>
-
         </ul>
     </P>
 </script>

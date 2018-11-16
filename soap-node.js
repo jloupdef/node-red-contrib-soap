@@ -42,7 +42,24 @@ module.exports = function (RED) {
                     if(msg.headers){
                         client.addSoapHeader(msg.headers);
                     }
+                    
+                    if (msg.httpHeaders) {                                      
+                        Object.entries(msg.httpHeaders).forEach(httpHeader => {
+                            let key = httpHeader[0];
+                            let value = httpHeader[1];
+                            client.addHttpHeader(key, value);
+                        });                     
+                    }   
 
+                    if (msg.sslOptions) {
+                        client.setSecurity(new soap.ClientSSLSecurity(
+                            msg.sslOptions.key,
+                            msg.sslOptions.cert,
+                            msg.sslOptions.ca,
+                            msg.sslOptions.defaults
+                        ));
+                    }
+                    
                     if(client.hasOwnProperty(node.method)){
                         client[node.method](msg.payload, function (err, result) {
                             if (err) {
